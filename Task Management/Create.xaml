@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="Task_Management.Create"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Task_Management"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" Margin="20,20,20,20">
+                <TextBlock Text="TaskID"/>
+                <TextBox x:Name="taskid" Width="300"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20,20,20,20">
+                <TextBlock Text="TaskName"/>
+                <TextBox x:Name="taskname" Width="300"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20,20,20,20">
+                <TextBlock Text="TaskDetails"/>
+                <TextBox x:Name="taskdetails" Width="300"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="20,20,20,20">
+                <TextBlock Text="Assigned to:"/>
+                <ComboBox x:Name="asignto" Width="300" SelectionChanged="asignto_SelectionChanged"/>
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="creates" Content="Create" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,50" Click="creates_Click"/>
+    </Grid>
+</Page>
