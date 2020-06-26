@@ -1,0 +1,157 @@
+﻿<UserControl
+    x:Class="adaptive.tableview"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:adaptive"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:adaptive.Models"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    
+       
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="100"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="one.visibility" Value="visible"/>
+                            <Setter Target="two.Visibility" Value="Visible"/>
+                            <Setter Target="three.Visibility" Value="Collapsed"/>
+                            <Setter Target="four.Visibility" Value="Collapsed"/>
+                            <Setter Target="five.Visibility" Value="Collapsed"/>
+                            <Setter Target="six.Visibility" Value="Collapsed"/>
+                            <Setter Target="seven.Visibility" Value="Collapsed"/>
+                            <Setter Target="eight.Visibility" Value="Collapsed"/>
+                            <Setter Target="nine.Visibility" Value="Collapsed"/>
+                            <Setter Target="ten.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="400"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+
+                            <Setter Target="two.Visibility" Value="Visible"/>
+                            <Setter Target="three.Visibility" Value="Visible"/>
+                            <Setter Target="four.Visibility" Value="Visible"/>
+                            <Setter Target="five.Visibility" Value="Collapsed"/>
+                            <Setter Target="six.Visibility" Value="Collapsed"/>
+                            <Setter Target="seven.Visibility" Value="Collapsed"/>
+                            <Setter Target="eight.Visibility" Value="Collapsed"/>
+                            <Setter Target="nine.Visibility" Value="Collapsed"/>
+                            <Setter Target="ten.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="500"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="two.Visibility" Value="Visible"/>
+                            <Setter Target="three.Visibility" Value="Visible"/>
+                            <Setter Target="four.Visibility" Value="Visible"/>
+                            <Setter Target="five.Visibility" Value="Visible"/>
+                            <Setter Target="six.Visibility" Value="Collapsed"/>
+                            <Setter Target="seven.Visibility" Value="Collapsed"/>
+                            <Setter Target="eight.Visibility" Value="Collapsed"/>
+                            <Setter Target="nine.Visibility" Value="Collapsed"/>
+                            <Setter Target="ten.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="600"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="two.Visibility" Value="Visible"/>
+                            <Setter Target="three.Visibility" Value="Visible"/>
+                            <Setter Target="four.Visibility" Value="Visible"/>
+                            <Setter Target="five.Visibility" Value="Visible"/>
+                            <Setter Target="six.Visibility" Value="Visible"/>
+                            <Setter Target="seven.Visibility" Value="Collapsed"/>
+                            <Setter Target="eight.Visibility" Value="Collapsed"/>
+                            <Setter Target="nine.Visibility" Value="Collapsed"/>
+                            <Setter Target="ten.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="700"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="five.Visibility" Value="Visible"/>
+                            <Setter Target="six.Visibility" Value="Visible"/>
+                            <Setter Target="seven.Visibility" Value="Visible"/>
+                            <Setter Target="eight.Visibility" Value="Collapsed"/>
+                            <Setter Target="nine.Visibility" Value="Collapsed"/>
+                            <Setter Target="ten.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="800"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+
+                            <Setter Target="six.Visibility" Value="Visible"/>
+                            <Setter Target="seven.Visibility" Value="Visible"/>
+                            <Setter Target="eight.Visibility" Value="Visible"/>
+                            <Setter Target="nine.Visibility" Value="Collapsed"/>
+                            <Setter Target="ten.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="900"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="seven.Visibility" Value="Visible"/>
+                            <Setter Target="eight.Visibility" Value="Visible"/>
+                            <Setter Target="nine.Visibility" Value="Visible"/>
+                            <Setter Target="ten.Visibility" Value="Collapsed"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="1000"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="eight.Visibility" Value="Visible"/>
+                            <Setter Target="nine.Visibility" Value="Visible"/>
+                            <Setter Target="ten.Visibility" Value="Visible"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState>
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="1100"></AdaptiveTrigger>
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="nine.Visibility" Value="Visible"/>
+                            <Setter Target="ten.Visibility" Value="Visible"/>
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+
+
+        <Grid Background="Gainsboro">
+            <StackPanel Orientation="Horizontal" >
+            <TextBlock x:Name="one" Width="40" Text="{x:Bind emp.sno,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"  Margin="10,10,10,10" />
+            <TextBlock x:Name="two" Width="110" Text="{x:Bind emp.firstname,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="10,10,10,10" />
+            <TextBlock x:Name="three" Width="110" Text="{x:Bind emp.lastname,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="10,10,10,10"/>
+            <TextBlock x:Name="four" Width="150" Text="{x:Bind  emp.teamname,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="10,10,10,10"/>
+            <TextBlock x:Name="five" Width="100" Text="{x:Bind  emp.id,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="10,10,10,10"/>
+            <TextBlock x:Name="six" Width="100" Text="{x:Bind  emp.Gendervalue,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="10,10,10,10"/>
+            <TextBlock x:Name="seven" Width="100" Text="{x:Bind emp.shift,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="10,10,10,10"/>
+            <TextBlock x:Name="eight" Width="120" Text="{x:Bind emp.phoneno,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="10,10,10,10"/>
+            <TextBlock x:Name="nine" Width="80" Text="{x:Bind emp.salary,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="10,10,10,10"/>
+            <TextBlock x:Name="ten" Width="70" Text="{x:Bind emp.dob,UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" Margin="10,10,10,10"/>
+             </StackPanel>
+        </Grid>
+</UserControl>

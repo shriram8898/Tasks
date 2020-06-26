@@ -1,0 +1,70 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="adaptive.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:adaptive"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:adaptive.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+   
+        <Grid Background="Gainsboro">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition  Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+     
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"></ColumnDefinition>
+                <ColumnDefinition  ></ColumnDefinition>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+           
+                <TextBlock Text="Employee Details" Grid.Row="0" Margin="20"  Grid.Column="0" FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                <local:timer Grid.Row="0"   Margin="30" Grid.Column="2"/>
+
+            <Popup x:ConnectionId='12' Name="onhoverpopup" Margin="0,0,300,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" IsOpen="False" >
+                <TextBlock x:ConnectionId='13' FontWeight="Bold" FontSize="25" FontFamily="italic" Name="popuptext"></TextBlock>
+            </Popup>
+
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"></ColumnDefinition>
+                <ColumnDefinition ></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <ListView x:ConnectionId='2' Grid.Column="0" Name="tableview"                                 SelectionMode="Single" IsItemClickEnabled="True"                                >
+                <ListView.ItemTemplate>
+                    <DataTemplate                           >
+                        <local:tableview x:ConnectionId='11'                                                                                  />
+
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView x:ConnectionId='3' Grid.Column="0" Name="listview"                                 SelectionMode="Single" IsItemClickEnabled="True" Visibility="Collapsed"                               >
+                <ListView.ItemTemplate>
+                    <DataTemplate                           >
+                        
+                        <local:listview x:ConnectionId='9'                                                                                 />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Border x:ConnectionId='4' Grid.Column="1" Name="centerline" Visibility="Collapsed"  BorderBrush="Black" BorderThickness="2,0,0,0" ></Border>
+                <ListView x:ConnectionId='5' Grid.Column="1"                                 Name="viewemplist" Visibility="Collapsed">
+            <ListView.ItemTemplate>
+                <DataTemplate                           >
+                    <local:viewemployee  />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </Grid>
+    </Grid>
+   
+</Page>
+

@@ -1,0 +1,82 @@
+﻿<UserControl x:ConnectionId='1'
+    x:Class="adaptive.viewemployee"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:adaptive"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:data="using:adaptive.Models"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState>
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="0"></AdaptiveTrigger>
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Target="view.Visibility" Value="Collapsed"></Setter>
+                </VisualState.Setters>
+            </VisualState>
+            <VisualState>
+                <VisualState.StateTriggers>
+                    <AdaptiveTrigger MinWindowWidth="800"></AdaptiveTrigger>
+                </VisualState.StateTriggers>
+                <VisualState.Setters>
+                    <Setter Target="view.Visibility" Value="Visible"></Setter>
+                </VisualState.Setters>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+    <StackPanel x:ConnectionId='2' HorizontalAlignment="Center" VerticalAlignment="Center" Name="view" Margin="100,40,100,100"  Padding="20,20,20,20" >
+        <StackPanel Orientation="Horizontal">
+        <TextBlock x:ConnectionId='19' Width="130" Text="Firstname:"  Name="firstnamelabel" ></TextBlock>
+        <TextBlock x:ConnectionId='20'   Width="100" x:Name="two"                                Margin="10,0,10,10" />
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock x:ConnectionId='17' Width="130" Text="Lastname:" Name="lastnamelabel" ></TextBlock>
+
+            <TextBlock x:ConnectionId='18'   Width="100" x:Name="three"                                 Margin="10,0,10,10" />
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="0,10,0,0" >
+            <TextBlock x:ConnectionId='15' Width="130" Text="Employeeid:" Name="empidlabel"  ></TextBlock>
+        
+        <TextBlock x:ConnectionId='16'   Width="100" x:Name="four"                        Margin="10,0,10,10" />
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock x:ConnectionId='13' Width="130" Text="Gender:" Name="genderlabel" HorizontalAlignment="Center" VerticalAlignment="Center" ></TextBlock>
+       <!-- <TextBlock Width="100" x:Name="five" Text="{x:Bind emp.gender}" Margin="10,0,10,10"/> -->
+            <ComboBox x:ConnectionId='14' Name="combo" SelectedItem="{Binding Gendervalue, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="10" Height="30">
+               
+            </ComboBox>
+            <TextBlock Text="{Binding Imagesource,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"></TextBlock>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock x:ConnectionId='11' Width="130" Text="Salary" Name="salarylabel"></TextBlock>
+
+        <TextBlock x:ConnectionId='12' Width="100" x:Name="six"                            Margin="10,0,10,10"/>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="0,10,0,0">
+
+            <TextBlock x:ConnectionId='9' Width="130" Text="Phoneno:" Name="phonenolabel"  ></TextBlock>
+        <TextBlock x:ConnectionId='10' Width="150" x:Name="seven"                             Margin="10,0,10,10"/>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock x:ConnectionId='7' Width="130" Text="Teamname:" Name="teamnamelabel" ></TextBlock>
+        <TextBlock x:ConnectionId='8' Width="150" x:Name="eight"                               Margin="10,0,10,10"/>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="0,10,0,0">
+            <TextBlock x:ConnectionId='5' Width="130" Text="Date of Birth:" Name="doblabel" ></TextBlock>
+        <TextBlock x:ConnectionId='6' Width="120" x:Name="nine"                         Margin="10,0,10,10"/>
+        </StackPanel>
+        <StackPanel  Orientation="Horizontal" Margin="0,10,0,0">
+
+            <TextBlock x:ConnectionId='3' Width="130" Text="Shift:" Name="shiftlabel"  ></TextBlock>
+        <TextBlock x:ConnectionId='4' Width="120" x:Name="ten"                            Margin="10,0,10,10"/>
+        </StackPanel>
+    </StackPanel>
+    
+</UserControl>
+
