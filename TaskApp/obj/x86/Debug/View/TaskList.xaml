@@ -1,0 +1,149 @@
+﻿<Page
+    x:Class="TaskApp.View.TaskList"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:TaskApp.View"
+    xmlns:data="using:TaskApp.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <CollectionViewSource x:ConnectionId='2' x:Key="cvs" x:Name="cvs" IsSourceGrouped="True" />
+    </Page.Resources>
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:ConnectionId='3' x:Name="VisualStateGroup">
+                <VisualState x:ConnectionId='4' x:Name="Minimize">
+                    <VisualState.Setters>
+                        <Setter Target="stark1.Visibility" Value="Collapsed"/>
+                        <Setter Target="Task1.Visibility" Value="Visible"/>
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" MinWindowHeight="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:ConnectionId='5' x:Name="VisualState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" MinWindowHeight="0"/>
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <Border BorderThickness="0" Margin="10,0,10,0" Grid.Row="1" >
+            <Grid x:ConnectionId='18' x:Name="listView" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:ConnectionId='19' x:Name="Task1" Text="Tasks" FontSize="28" Visibility="Collapsed" Grid.Row="0"/>
+                <RelativePanel Grid.Row="1">
+                    <Button x:ConnectionId='33' Name="Add_task" Content="Add Task"                        RelativePanel.AlignRightWithPanel="True" Height="30" Margin="0,0,10,0"/>
+                    <Button x:ConnectionId='34'  Content="&#xE16E;" RelativePanel.AlignLeftWithPanel="True" x:Name="filters"
+                                           Margin="0,0,5,0" ToolTipService.ToolTip="Filter" FontFamily="Segoe MDL2 Assets" Height="30" Width="40">
+                        <Button.Flyout>
+                            <MenuFlyout  Placement="Bottom">
+                                <MenuFlyoutItem x:ConnectionId='36' Text="All"                     />
+                                <MenuFlyoutItem x:ConnectionId='37' Text="Assigned by me"                     />
+                                <MenuFlyoutSubItem x:ConnectionId='38' x:Name="filter" Text="Assigned to"></MenuFlyoutSubItem>
+                            </MenuFlyout>
+                        </Button.Flyout>
+                    </Button>
+                    <TextBox x:ConnectionId='35' x:Name="searchitem" Width="280"                                      PlaceholderText="Search"
+                                   CornerRadius="8" RelativePanel.RightOf="filters" />
+                </RelativePanel>
+                <StackPanel x:ConnectionId='20' x:Name="stark1" Orientation="Horizontal" Background="AliceBlue" Margin="0,10" Grid.Row="2">
+                    <TextBlock x:ConnectionId='27' x:Name="two" Text="TASK NAME"  Margin="20,10,375,10"  FontSize="18"/>
+                    <TextBlock x:ConnectionId='28' x:Name="three" Text="ASSIGNED BY"  Margin="0,10,75,10"  FontSize="18"/>
+                    <TextBlock x:ConnectionId='29' x:Name="four" Text="STATUS"  Margin="0,10,70,10"  FontSize="18"/>
+                    <TextBlock x:ConnectionId='30' x:Name="five" Text="CREATED DATE"  Margin="0,10,70,10"  FontSize="18"/>
+                    <TextBlock x:ConnectionId='31' x:Name="six" Text="PRIORITY"  Margin="17,10,90,10"  FontSize="18"/>
+                    <TextBlock x:ConnectionId='32' x:Name="seven" Text="UPDATED ON"  Margin="20,10,100,10"  FontSize="18"/>
+                </StackPanel>
+                <ScrollViewer x:ConnectionId='21' VerticalScrollBarVisibility="Auto" Grid.Row="3"                                 >
+                    <ListView x:ConnectionId='23' x:Name="tasks" SelectionMode="Single" SelectedIndex="-1"                                     IsItemClickEnabled="True"
+                                   ItemsSource="{Binding Source={StaticResource cvs}}" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                        <ListView.ItemTemplate>
+                            <DataTemplate                               >
+                                <StackPanel>
+                                    <local:DetailsOfList Name="Large" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.GroupStyle>
+                            <GroupStyle>
+                                <GroupStyle.HeaderTemplate>
+                                    <DataTemplate>
+                                        <TextBlock x:Name="Headings" Text="{Binding Key}" Margin="0,0"
+                               Foreground="Black"  />
+                                    </DataTemplate>
+                                </GroupStyle.HeaderTemplate>
+                            </GroupStyle>
+                        </ListView.GroupStyle>
+                    </ListView>
+                </ScrollViewer>
+                <TextBlock x:ConnectionId='22' x:Name="Notask" Text="No task" VerticalAlignment="Center" FontSize="24" HorizontalAlignment="Center" Visibility="Collapsed" Grid.Row="2" Grid.RowSpan="2"/>
+            </Grid>
+        </Border>
+
+        <ContentDialog x:ConnectionId='6' x:Name="contentDialog1">
+            <ContentDialog.TitleTemplate>
+                <DataTemplate>
+                    <Grid >
+                        <TextBlock Text="Create Task" FontWeight="SemiBold" FontSize="18" FontFamily="TimesNewRoman"/>
+                    </Grid>
+                </DataTemplate>
+            </ContentDialog.TitleTemplate>
+            <Border BorderBrush="Black" BorderThickness="1">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid Margin="20,0,0,72">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="55.2"/>
+                            <RowDefinition Height="195.2"/>
+                            <RowDefinition Height="64.8"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="608"/>
+                        </Grid.ColumnDefinitions>
+                        <Button x:ConnectionId='8' x:Name="add" Content="Create Task" Foreground="White" Margin="211,65,0,0"                   Grid.Row="6"
+                            Grid.Column="1" Width="100" Background="#FF009CD6" Height="34" VerticalAlignment="Top" Grid.RowSpan="2"/>
+                        <Button x:ConnectionId='9' x:Name="cancel" Content="Cancel" Margin="100,65,0,0"                      Grid.Row="6" Grid.Column="1" 
+                            Width="100" Height="34" VerticalAlignment="Top" Grid.RowSpan="2"  />
+                        <TextBlock Text="Task Name" Margin="10,10,10,9" FontSize="18" FontFamily="Segoe UI" Grid.Row="0"/>
+                        <TextBox x:ConnectionId='10' Name="taskName" Margin="33,13,305,8" Grid.Column="1" Grid.Row="0"/>
+                        <TextBox x:ConnectionId='11' Name="taskDetails" Header="Task Details" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.Row="1" 
+                             ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="10,10,304,9" FontSize="18"/>
+                        <TextBlock Text="Priority" FontSize="18" Margin="10,16,10,20" FontFamily="Segoe UI" Grid.Row="2"/>
+                        <ComboBox x:ConnectionId='12' x:Name="priority" Width="271" Margin="33,0,0,0" Grid.Column="1" Grid.Row="2" SelectedIndex="0" VerticalAlignment="Center" Height="32" />
+                        <TextBlock Text="Assign To" FontSize="18" Margin="10,10,10,9" FontFamily="Segoe UI" Grid.Row="3"/>
+                        <ComboBox x:ConnectionId='13' x:Name="Assignto" Width="271" Margin="33,0,0,0" Grid.Column="1" Grid.Row="3" VerticalAlignment="Center" Height="32" >
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <PersonPicture ProfilePicture="{Binding Img}" Height="20" Width="20"/>
+                                        <TextBlock Text="{Binding name}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                        <TextBlock Text="Task List" FontSize="18" Margin="10,10,10,9" FontFamily="Segoe UI" Grid.Row="4"/>
+                        <ComboBox x:ConnectionId='14' x:Name="collective" Width="271" Margin="33,0,0,0" Grid.Column="1" Grid.Row="4" SelectedIndex="2" VerticalAlignment="Center" Height="32" />
+                        <TextBlock Text="Start Date" Grid.Column="0" Grid.Row="5" FontSize="18" Margin="10,10,10,9" FontFamily="Segoe UI"/>
+                        <CalendarDatePicker x:ConnectionId='15' x:Name="startDate" Grid.Row="5" Grid.Column="1" Margin="33,0,0,0" VerticalAlignment="Center" Height="32" Width="271"/>
+                        <TextBlock Text="End Date" Grid.Column="0" Grid.Row="6" FontSize="18" Margin="10,15,10,9" FontFamily="Segoe UI"/>
+                        <CalendarDatePicker x:ConnectionId='16' x:Name="endDate" Grid.Row="6" Grid.Column="1" Margin="33,0,0,0" VerticalAlignment="Center" Height="32" Width="271"/>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+        </ContentDialog>
+    </Grid>
+</Page>
+

@@ -1,0 +1,1 @@
+E:\TaskApp\TaskApp.csproj;x86
